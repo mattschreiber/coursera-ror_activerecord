@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 	def self.find_user_byname(username)
 		User.where(username: username)
 	end
+
+	def self.get_user_byid(id)
+		User.find_by(id: id)
+	end
 end

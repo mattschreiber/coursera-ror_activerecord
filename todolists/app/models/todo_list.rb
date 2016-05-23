@@ -12,4 +12,8 @@ class TodoList < ActiveRecord::Base
 	def self.find_todolist_byname(name)
 		TodoList.where(list_name: name)
 	end
+
+	def self.get_todolist_byid(id)
+		TodoList.find_by(id: id)
+	end
 end
