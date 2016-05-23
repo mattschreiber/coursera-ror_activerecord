@@ -16,4 +16,12 @@ class TodoList < ActiveRecord::Base
 	def self.get_todolist_byid(id)
 		TodoList.find_by(id: id)
 	end
+
+	def self.update_listname(id, name)
+		TodoList.find_by(id: id).update(list_name: name)
+	end
+
+	def self.delete_todolist(id)
+		TodoList.delete(id)
+	end
 end

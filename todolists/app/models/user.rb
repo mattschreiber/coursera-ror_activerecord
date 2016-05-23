@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
 	def self.get_user_byid(id)
 		User.find_by(id: id)
 	end
+
+	def self.update_password(id, password_digest)
+		User.find_by(id: id).update(password_digest: password_digest)
+	end
+
+	def self.delete_user(id)
+		User.delete(id)
+	end
 end
