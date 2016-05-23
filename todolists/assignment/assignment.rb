@@ -18,6 +18,10 @@ class Assignment
       # accept a hash of todolist properties (`:name` and `:due_date`) as an input parameter. Note these are not 100% the same as Model class.
       # use the TodoList Model class to create a new user in the DB
       # return an instance of the class with primary key (`id`), and dates (`created_at` and `updated_at`) assigned
+    
+      params[:list_name] = params.delete :name #change keys to match Model Class
+      params[:list_due_date] = params.delete :due_date
+      @new_todolist = TodoList.create_todolist(params)      
   end
 
   #
@@ -27,12 +31,14 @@ class Assignment
       # accept offset and limit input parameters
       # use the User Model class to find all Users, ordered by `updated_at` ascending, with specified row offset and row limit
       # return a collection of User instances that represent the specified rows
+      @find_allusers = User.find_allusers(offset, limit)
   end
 
   def find_alllists(offset, limit)
       # accept offset and limit input parameters
       # use the TodoList Model class to find all TodoLists, ordered by `list_due_date` descending, with specified row offset and row limit
       # return a collection of TodoList instances that represent the specified rows
+      @find_alllists = TodoList.find_alllists(offset, limit)
   end
 
   #
@@ -43,6 +49,7 @@ class Assignment
       # use the User Model class to find all Users with the supplied username. 
       # NOTE:  Username is not unique in the Users table, thus you can have many users with the same username.
       # return a collection of User instances that match the provided username  
+      @find_user_byname = User.find_user_byname(username)
   end 
 
   def find_todolist_byname(name)
@@ -50,6 +57,7 @@ class Assignment
       # use the TodoList Model class to find all TodoLists with the supplied list_name. 
       # NOTE: List name is not required to be unique, thus you can have many lists with the same list name.
       # return a collection of TodoList instances that match the provided name
+      @find_todolist_byname = TodoList.find_todolist_byname(name)
   end     
 
   #
