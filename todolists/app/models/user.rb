@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 	end
 
 	def self.get_user_byid(id)
-		User.find_by(id: id)
+		#User.find_by(id: id)
+		User.find(id)
 	end
 
 	def self.update_password(id, password_digest)

@@ -14,7 +14,8 @@ class TodoList < ActiveRecord::Base
 	end
 
 	def self.get_todolist_byid(id)
-		TodoList.find_by(id: id)
+		#TodoList.find_by(id: id)
+		TodoList.find(id)
 	end
 
 	def self.update_listname(id, name)
