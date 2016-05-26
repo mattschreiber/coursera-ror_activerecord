@@ -5,13 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-num_items = 5 #number of Todoitems to create
+num_items = 5 #number of Todoitems to create for each todolist
 todoitems = {title: "Item", description: "This is item #", due_date: Date.today+1.year}
-# [	{title: "Item2", description: "This is item 2"},
-# 	{title: "Item3", description: "This is item 3"},
-# 	{title: "Item4", description: "This is item 4"},
-# 	{title: "Item5", description: "This is item 5"}
-# ]
 
 User.destroy_all
 TodoList.destroy_all
